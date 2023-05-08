@@ -44,7 +44,7 @@ let user = createSlice({
 
 export default configureStore({
   reducer: {
-    작 : user.reducer
+    작명 : user.reducer
   }
 }) 
 ```
