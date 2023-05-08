@@ -60,3 +60,8 @@ function 함수(){
   return (생략)
 }
 ```
+
+
+###  dispatch, state 변경 방법
+
+
