@@ -63,5 +63,27 @@ function 함수(){
 
 
 ###  dispatch, state 변경 방법
+store 파일의 createSlice 변경 함수 작성
+```
+let user = createSlice({
+  name : 'user',
+  initialState : 'kim',
+  reducers : {
+    작명(state){
+      return 'john ' + state
+    }
+  }
+}) 
+export let { 작명 } = user.actions //export해주
+```
 
+사용할 파일에서 dispatch 사용
+```
+import { useDispatch, useSelector } from "react-redux"
+import { changeName } from "./../store.js"
+
+<button onClick={()=>{
+  dispatch(작명())
+}}>버튼</button> 
+```
 
