@@ -87,3 +87,25 @@ import { changeName } from "./../store.js"
 }}>버튼</button> 
 ```
 
+redux state가 array/object인 경우 변경하려면 
+```
+let user = createSlice({
+  name : 'user',
+  initialState : {name : 'kim', age : 20},
+  reducers : {
+    changeName(state){
+      return {name : 'park', age : 20}
+    }
+  }
+}) //이렇게 해도 되지만
+
+let user = createSlice({
+  name : 'user',
+  initialState : {name : 'kim', age : 20},
+  reducers : {
+    changeName(state){
+      state.name = 'park'
+    }
+  }
+}) // 이것도 가능 (Immer.js 라이브러리가 state 사본을 하나 더 생성해준 덕분)
+```
