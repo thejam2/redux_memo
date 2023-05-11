@@ -109,3 +109,21 @@ let user = createSlice({
   }
 }) // 이것도 가능 (Immer.js 라이브러리가 state 사본을 하나 더 생성해준 덕분)
 ```
+
+파라미터 전달 가능
+```
+let user = createSlice({
+  name : 'user',
+  initialState : {name : 'kim', age : 20},
+  reducers : {
+    increase(state, action){
+      state.age += action.payload
+      //action.type 하면 state변경함수 이름이 나오고
+      //action.payload 하면 파라미터가 나옴 
+    }
+  }
+}) 
+```
+
+호출시엔
+`dispatch(increase(10)), dispatch(increase(100))` 이런식으로 호출
