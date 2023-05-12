@@ -127,3 +127,49 @@ let user = createSlice({
 
 호출시엔
 `dispatch(increase(10)), dispatch(increase(100))` 이런식으로 호출
+
+
+### ReactQuery
+`npm install @tanstack/react-query `
+
+index에
+```
+import { QueryClient, QueryClientProvider } from "react-query"  //1번
+const queryClient = new QueryClient()   //2번
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <QueryClientProvider client={queryClient}>  //3번
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </QueryClientProvider>
+); 
+```
+
+사용
+```
+function App(){
+  let result = useQuery('작명', ()=>
+    axios.get('주소')
+    .then((a)=>{ return a.data })
+  )
+
+  return (
+    <div>
+      { result.isLoading && '로딩중' }
+      { result.error && '에러' }
+      { result.data && result.data.name }
+    </div>
+  )
+}
+```
+
+특징
+
+1. ajax 요청 성공/실패/로딩중 상태를 쉽게 파악
+2. 틈만나면 알아서 ajax 재요청
+3. 실패시 재시도 알아서 해줌
+4. ajax로 가져온 결과는 state 공유 필요없음 
