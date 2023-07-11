@@ -82,6 +82,7 @@ export let { 작명 } = user.actions //export해주
 import { useDispatch, useSelector } from "react-redux"
 import { changeName } from "./../store.js"
 
+const dispatch = useDispatch();
 <button onClick={()=>{
   dispatch(작명())
 }}>버튼</button> 
