@@ -61,6 +61,9 @@ function 함수(){
 }
 ```
 
+### combineReducers
+https://velog.io/@postlist/REACT-Reducer-%EC%97%AC%EB%9F%AC-%EA%B0%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-combineReducer
+
 
 ###  dispatch, state 변경 방법
 store 파일의 createSlice 변경 함수 작성
